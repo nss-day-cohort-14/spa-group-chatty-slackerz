@@ -2,3 +2,7 @@
 	background-color: darkgrey;
 	color: white;
 }
+
+form > input {
+	color: black;
+}
