@@ -2,7 +2,7 @@ var Chatty = (function (chatty) {
 	var messages = null;
 	var newRequest = new XMLHttpRequest();
 	newRequest.addEventListener("load", parseJSON);
-	newRequest.open("GET", "../json/intitialMassages.json");
+	newRequest.open("GET", "../json/initialMessages.json");
 	newRequest.send();
 
 	function parseJSON (event){
@@ -13,13 +13,3 @@ var Chatty = (function (chatty) {
 	return chatty;
 
 })(Chatty || {});
-
-
-
-
-//testing timestamp
-
-// var newTime = Date.now();
-// console.log("newTime", newTime);
-// console.log("day", Date.getDay());
-
