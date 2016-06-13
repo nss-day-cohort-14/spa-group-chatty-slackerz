@@ -6,22 +6,27 @@ var Chatty = (function(chatty){
 		var messages = Chatty.getMessageArray();
 		arrayObject.message = messageText;
 		messages.push(arrayObject);
-		return messages.length; //return the index of the new item
+		return messages.length - 1; //return the index of the new item
 	};
 
 	chatty.addMessageToDOM = function(idNum) {
 		var newMessageDiv = document.createElement("div");
-		newMessageDiv.innerHTML = Chatty.newMessageText;
+		var messages = Chatty.getMessageArray();
+
+		newMessageDiv.innerHTML = messages[idNum].message;
+		var newMessageDelButton = document.createElement("button");
+		newMessageDelButton.innerHTML = "Delete";
+
+		var outputArea = document.getElementById("output");
 
 		var newMessageID = document.createAttribute("id");
-		var newMessageDelButton = document.createElement("button");
 		var newDelButtonID = document.createAttribute("id")
 		newMessageID.vaule = `messageBlock--${idNum}`;
 		newDelButtonID.vlaue = `messageButton--${idNum}`;
 		newMessageDiv.setAttributeNode(newMessageID);
 
-		Chatty.outputArea.appendChild(newMessageDiv); //add the new message
-		newMessageDiv.appendChild(newDelButtonID);
+		outputArea.appendChild(newMessageDiv); //add the new message
+		newMessageDiv.appendChild(newMessageDelButton);
 	};
 
 	return chatty;
