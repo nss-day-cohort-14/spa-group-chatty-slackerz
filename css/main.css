@@ -1,3 +1,19 @@
+#img{
+	width: 60px;
+	height: 50px;
+}
+#nametag{
+	color: yellow;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	font-size: 1.6em;
+}
+
+#nametag:hover {
+  margin: 0;
+  text-shadow: 0 0 5px rgba(255,255,255,1) , 0 0 5px rgba(255,255,255,1) , 0 0 5px rgba(255,255,255,1) 
+  , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
+}
+
 .nav {
 	position: fixed
 	width: 80%;
@@ -6,7 +22,7 @@
 }
 
 .inputBox {
-	width:70%;
+	width:68%;
 	height: 25px;
 }
 
@@ -16,15 +32,38 @@
 }
 
 .checkbox {
-	text-align: left;
-	margin-left: 7%;
-	
+	margin-left: 2%;
+	display: inline;
 }
 
-#output{
+#output {
 	border: 1px solid black;
 	width: 400px;
 	height: 400px;
+	margin: 0 auto;
 }
-/*lighttheme before dark theme*/
-/*buttons largeText, darkTheme
+#outputContainer {
+	margin: 0 auto;
+	text-align: center;
+}
+
+/*Dark theme*/
+
+
+.container.darkTheme {
+	border-color: white;
+}
+
+.darkTheme {
+	background-color: #a9a9a9;
+	color: white;
+	border-color: white;
+}
+/*enlarge text*/
+.enlargeText {
+	font-size: 1.5em;
+}
+
+.staysBlack, #userInput, .deleteButton {
+    color: black;
+}
