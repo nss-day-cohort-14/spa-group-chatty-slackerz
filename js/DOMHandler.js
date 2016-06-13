@@ -1,6 +1,6 @@
 var initializeDOM = (function(){
-	var largeTextCheckBox = document.getElementById("Large Text"); //get element of the large text checkbox
-	var darkThemeCheckBox = document.getElementById("Dark theme"); //get element of the dark theme toggle checkbox
+	var largeTextCheckBox = document.getElementById("largeText"); //get element of the large text checkbox
+	var darkThemeCheckBox = document.getElementById("darkTheme"); //get element of the dark theme toggle checkbox
 	var clearMessageButton = document.getElementById("clearMessages"); //get element of the clear message button
 	var outputArea = document.getElementById("output"); //get element to print data into
 //this listener listens for the enter key press
