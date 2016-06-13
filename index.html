@@ -12,19 +12,24 @@
 <body class="light">
 <nav class="nav">
 	<form>
-  	Chatty:
+	<img src="https://cdn.theatlantic.com/assets/media/img/mt/2014/12/runningman-1/lead_large.jpg" alt="aolLogo" id="img">
+  	<span id="nametag">Chatty!</span>
   	<input type="text" name="message" placeholder="Enter Message" class="inputBox">
   	<button id="clearMessages">Clear Message Board</button><br>
-  	<div class="checkbox">
-  	<input type="checkbox" name="theme" id="Dark theme"> Dark Theme </input>
-  	<input type="checkbox" name="theme" id="Large Text"> Large Text </input>
-  	</div>
+	  	<div class="checkbox">
+	    <label><input type="checkbox" name="check" id="darkTheme">Dark Theme</label>
+		</div>
+		<div class="checkbox">
+	  	<label><input type="checkbox" name="check" id="largeText">Large Text</label>
+		</div>
 	</form>
 </nav>
+	<div id="outputContainer"> Messages:
 	<div id="output"></div>
-	<script src="loadInitialChatty.js"></script>
-	<script src="addToChatty.js"></script>
-	<script src="deleteFromChatty.js"></script>
-	<script src="DOMHandler.js"></script>
+	</div>
+	<script src="js/loadInitialChatty.js"></script>
+	<script src="js/addToChatty.js"></script>
+	<script src="js/deleteFromChatty.js"></script>
+	<script src="js/DOMHandler.js"></script>
 </body>
 </html>
