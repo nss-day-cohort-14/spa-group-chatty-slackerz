@@ -21,9 +21,10 @@ var Chatty = (function(chatty){
 
 		var newMessageID = document.createAttribute("id");
 		var newDelButtonID = document.createAttribute("id")
-		newMessageID.vaule = `messageBlock--${idNum}`;
-		newDelButtonID.vlaue = `messageButton--${idNum}`;
+		newMessageID.value = `messageBlock--${idNum}`;
+		newDelButtonID.value = `messageButton--${idNum}`;
 		newMessageDiv.setAttributeNode(newMessageID);
+
 
 		outputArea.appendChild(newMessageDiv); //add the new message
 		newMessageDiv.appendChild(newMessageDelButton);
