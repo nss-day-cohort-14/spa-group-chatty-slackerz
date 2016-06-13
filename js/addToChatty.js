@@ -10,24 +10,31 @@ var Chatty = (function(chatty){
 	};
 
 	chatty.addMessageToDOM = function(idNum) {
-		var newMessageDiv = document.createElement("div");
-		var messages = Chatty.getMessageArray();
+		
+		if (document.getElementById("messageTextInput").value !== ""){
+			var newMessageDiv = document.createElement("div");
+			var messages = Chatty.getMessageArray();
 
-		newMessageDiv.innerHTML = messages[idNum].message;
-		var newMessageDelButton = document.createElement("button");
-		newMessageDelButton.innerHTML = "Delete";
+			newMessageDiv.innerHTML = messages[idNum].message;
+			var newMessageDelButton = document.createElement("button");
+			newMessageDelButton.innerHTML = "Delete";
 
-		var outputArea = document.getElementById("output");
+			var outputArea = document.getElementById("output");
 
-		var newMessageID = document.createAttribute("id");
-		var newDelButtonID = document.createAttribute("id")
-		newMessageID.value = `messageBlock--${idNum}`;
-		newDelButtonID.value = `messageButton--${idNum}`;
-		newMessageDiv.setAttributeNode(newMessageID);
+			var newMessageID = document.createAttribute("id");
+			var newDelButtonID = document.createAttribute("id")
+			newMessageID.value = `messageBlock--${idNum}`;
+			newDelButtonID.value = `messageButton--${idNum}`;
+			newMessageDiv.setAttributeNode(newMessageID);
 
 
-		outputArea.appendChild(newMessageDiv); //add the new message
-		newMessageDiv.appendChild(newMessageDelButton);
+			outputArea.appendChild(newMessageDiv); //add the new message
+			newMessageDiv.appendChild(newMessageDelButton);
+
+			document.getElementById("messageTextInput").value = "";
+		} else {
+			alert("Please enter text!")
+		}
 	};
 
 	return chatty;
