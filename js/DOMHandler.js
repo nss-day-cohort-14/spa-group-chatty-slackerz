@@ -12,7 +12,7 @@ var initializeDOM = (function(){
 	});
 //this listener listens for the large text for the body of the message.
 	largeTextCheckBox.addEventListener("change", function(event){
-		outputArea.classList.toggle("largeText"); //toggle the large text class for the text input section
+		outputArea.classList.toggle("enlargeText"); //toggle the large text class for the text input section
 		console.log("text to big");
 	});
 	darkThemeCheckBox.addEventListener("change", function(event){	
