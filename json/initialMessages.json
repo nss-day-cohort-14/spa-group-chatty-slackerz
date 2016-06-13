@@ -1,0 +1,33 @@
+{
+  "firstMessages": [
+    {
+      "user": "Bob",
+      "message": "Anybody seen my pants?",
+      "timestamp": "6/13/2016 2:05:26 PM"
+    },
+		{
+      "user": "Sue",
+      "message": "Um, what?",
+      "timestamp": "6/13/2016 2:06:54 PM"
+
+    },
+    {
+      "user": "Bob",
+      "message": "I should never drink tequila!",
+      "timestamp": "6/13/2016 2:08:01 PM"
+
+    },
+    {
+      "user": "Juan",
+      "message": "Ah, poor gringo!",
+      "timestamp": "6/13/2016 2:08:24 PM"
+
+    },
+    {
+      "user": "Sue",
+      "message": "Ha ha ha",
+      "timestamp": "6/13/2016 2:10:45 PM"
+
+    }   
+  ]
+}
