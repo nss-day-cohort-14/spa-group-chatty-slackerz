@@ -1,0 +1,30 @@
+.nav {
+	position: fixed
+	width: 80%;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.inputBox {
+	width:70%;
+	height: 25px;
+}
+
+#clearMessages {
+	height: 25px;
+	border-radius: 5px;
+}
+
+.checkbox {
+	text-align: left;
+	margin-left: 7%;
+	
+}
+
+#output{
+	border: 1px solid black;
+	width: 400px;
+	height: 400px;
+}
+/*lighttheme before dark theme*/
+/*buttons largeText, darkTheme
