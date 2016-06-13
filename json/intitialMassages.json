@@ -1,0 +1,24 @@
+{
+  "firstMessages": [
+    {
+      "user": "Bob",
+      "message": "Anybody seen my pants?"
+    },
+		{
+      "user": "Sue",
+      "message": "Um, what?"
+    },
+    {
+      "user": "Bob",
+      "message": "I should never drink tequila!"
+    },
+    {
+      "user": "Juan",
+      "message": "Ah, poor gringo!"
+    },
+    {
+      "user": "Sue",
+      "message": "Ha ha ha"
+    }   
+  ]
+}
