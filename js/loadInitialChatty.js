@@ -10,6 +10,10 @@ var Chatty = (function (chatty) {
 		messages = initialMessages.firstMessages;
 	};
 
+	chatty.getMessageArray = function (){
+		return messages;
+	};
+
 	return chatty;
 
 })(Chatty || {});

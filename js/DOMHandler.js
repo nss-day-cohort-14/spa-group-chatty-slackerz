@@ -6,6 +6,7 @@ var initializeDOM = (function(){
 //this listener listens for the enter key press
 	window.addEventListener("keyup", function(event){
 		if (event.keyCode === 13){
+			Chatty.addMessageToDOM(Chatty.readInput(document.getElementById("messageTextInput").value));
 			console.log("key code registered");//call function to enter new message into the DOM
 		}
 	});
