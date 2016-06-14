@@ -9,6 +9,36 @@ var Chatty = (function(chatty){
 		return messages.length - 1; //return the index of the new item
 	};
 
+	chatty.editSelectedMessage = function(event) {
+		var messages = Chatty.getMessageArray();
+		var targetMessage = event.currentTarget; //get the whole message (inc delete button)
+		var targetMessageID = targetMessage.id; //get the above message's id
+		var idNum = targetMessageID.split("--")[1]; 
+		var messageToEdit = document.getElementById(`messageText--${idNum}`); //get the DOm element to delete
+		var children = document.getElementById("output").children; //get an array of CURRENT children of output id
+
+		for (let i = 0; i < children.length; i++){ //find the child in question
+			if(`messageBlock--${idNum}` === children[i].id){
+				childIndex = i;
+			}
+		}
+
+		if (event.target.id === `editMessage--${idNum}`){ //if the target of the event is the edit button
+			console.log("ready to edit");
+			document.getElementById(`messageBlock--${idNum}`).removeEventListener("click", Chatty.editSelectedMessage); //remove old event listener
+			messageToEdit.innerHTML = `<input type="text" id="editFieldID--${idNum}" value="${messageToEdit.innerHTML}"></input>`; //create the edit field with old text inside
+			document.getElementById(`messageBlock--${idNum}`).addEventListener("click", function(){ //add listener for inputing edit text
+				if (event.target.id === `editMessage--${idNum}`){ //if target was edit button
+					messages[childIndex].message = document.getElementById(`editFieldID--${idNum}`).value;//set the array's message element appropriately
+					messageToEdit.innerHTML = messages[childIndex].message; //set the messages innerhtml
+					document.getElementById(`messageBlock--${idNum}`).addEventListener("click", Chatty.editSelectedMessage); //re-add the main event listener
+
+				}
+			});
+		}
+
+	};
+
 	chatty.addMessageToDOM = function(idNum) {//this function adds a message to the DOM
 		var messages = Chatty.getMessageArray();
 		//if there is text in the input OR the initial messages are not done loading, then input to the DOM
@@ -40,16 +70,23 @@ var Chatty = (function(chatty){
 
 			var newMessageDelButton = document.createElement("button"); //add a new button element
 			newMessageDelButton.innerHTML = "Delete"; //call it delete
-
+			var editCurrentMessageButton = document.createElement("button");
+			editCurrentMessageButton.innerHTML = "Edit";
 			var outputArea = document.getElementById("output"); //identify the output area
 
 
 			var newMessageID = document.createAttribute("id"); //add an ID
-			var newDelButtonID = document.createAttribute("id")
+			var newDelButtonID = document.createAttribute("id");
+			var messageID = document.createAttribute("id"); //this is the actual message area test
+			var editMessageID = document.createAttribute("id");
 			newMessageID.value = `messageBlock--${idNum}`; //set the IDs
 			newDelButtonID.value = `messageButton--${idNum}`;
+			messageID.value = `messageText--${idNum}`;
+			editMessageID.value = `editMessage--${idNum}`
 			newMessageDiv.setAttributeNode(newMessageID); //add the IDs to the message and button
 			newMessageDelButton.setAttributeNode(newDelButtonID);
+			newMessageText.setAttributeNode(messageID);
+			editCurrentMessageButton.setAttributeNode(editMessageID);
 
 
 			outputArea.appendChild(newMessageDiv); //add the new message
@@ -57,9 +94,11 @@ var Chatty = (function(chatty){
 			newMessageDiv.appendChild(newMessageUser);
 			newMessageDiv.appendChild(newMessageText);
 			newMessageDiv.appendChild(newMessageDelButton); //add button to the message
+			newMessageDiv.appendChild(editCurrentMessageButton); //add button to the message
 
 			document.getElementById("messageTextInput").value = ""; //reset the input field
 			document.getElementById(`messageBlock--${idNum}`).addEventListener("click", Chatty.deleteMessage);
+			document.getElementById(`messageBlock--${idNum}`).addEventListener("click", Chatty.editSelectedMessage);
 		}	else {
 			alert("Write something in the box, please!");
 		}

@@ -1,12 +1,27 @@
 var Chatty = (function(chatty){
 
-	chatty.deleteFromMessageArray = function (index) { //this helper function deletes from the array any message removed from DOM
-		messages = chatty.getMessageArray(); //get the array
+	chatty.deleteFromMessageArray = function (idNum) { //this helper function deletes from the array any message removed from DOM
+		var messages = Chatty.getMessageArray(); //get the array
+		var messageToRemoveID = `messageBlock--${idNum}`;
+		var CurrentIDNum = messageToRemoveID.split("--")[1]; 
+		var children = document.getElementById("output").children;
+		var childIndex = null;
 
-			messages = messages.splice(index, 1); //splice out the index that need to be removed
-		
-		
-		return this.mesages; //return the messages area to the Chatty object
+		for (let i = 0; i < children.length; i++){
+			if(`messageBlock--${idNum}` === children[i].id){
+				childIndex = i;
+			}
+		}
+
+		var timeStampText = messages[childIndex].timestamp;
+
+		for(let i = 0; i < messages.length; i++){
+			if(messages[i].timestamp === timeStampText){
+				messages.splice(i, 1);
+				
+			}
+		}
+		return this.messages;
 	};
 
 	chatty.deleteMessage = function(event){
@@ -16,8 +31,8 @@ var Chatty = (function(chatty){
 		var messageToDelete = document.getElementById(targetMessageID); //get the DOm element to delete
 
 		if (event.target.id === `messageButton--${idNum}`){ //if the target id === the button id pressed then remove the message
-			document.getElementById("output").removeChild(messageToDelete);
 			Chatty.deleteFromMessageArray(idNum); //call the f(x) to remove from the array
+			document.getElementById("output").removeChild(messageToDelete);
 		}
 		if (Chatty.getMessageArray().length === 0){
 				document.getElementById("clearMessages").disabled = true;
