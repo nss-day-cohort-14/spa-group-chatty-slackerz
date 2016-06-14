@@ -3,6 +3,10 @@
 	color: white;
 }
 
-form > input {
+nav > input {
 	color: black;
+}
+
+.dark button {
+	background-color: black;
 }

@@ -22,16 +22,17 @@ var Chatty = (function(chatty){
 			var outputArea = document.getElementById("output"); //identify the output area
 
 			var newMessageID = document.createAttribute("id"); //add an ID
-			//var newDelButtonID = document.createAttribute("id")
+			var newDelButtonID = document.createAttribute("id")
 			newMessageID.value = `messageBlock--${idNum}`; //set the IDs
-			//newDelButtonID.value = `messageButton--${idNum}`;
+			newDelButtonID.value = `messageButton--${idNum}`;
 			newMessageDiv.setAttributeNode(newMessageID); //add the ID
-
+			newMessageDelButton.setAttributeNode(newDelButtonID);
 
 			outputArea.appendChild(newMessageDiv); //add the new message
 			newMessageDiv.appendChild(newMessageDelButton); //add button to the message
 
 			document.getElementById("messageTextInput").value = ""; //reset the input field
+			document.getElementById(`messageBlock--${idNum}`).addEventListener("click", Chatty.deleteMessage);
 		} else { //if not text is in there alert the user
 			alert("Please enter text!")
 		}
