@@ -38,6 +38,7 @@ var Chatty = (function(chatty){
 		}	else {
 			alert("Write something in the box, please!");
 		}
+		Chatty.limitMessages(idNum);
 	};
 
 	return chatty;
