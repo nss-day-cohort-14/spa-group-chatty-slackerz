@@ -2,11 +2,9 @@ var Chatty = (function(chatty){
 
 	chatty.deleteFromMessageArray = function (index) { //this helper function deletes from the array any message removed from DOM
 		messages = chatty.getMessageArray(); //get the array
-		if(messages.length > 0){
+		
 			messages = messages.splice(index, 1); //splice out the index that need to be removed
-		} else {
-			messages = messages.pop();
-		}
+		
 		
 		return this.mesages; //return the messages area to the Chatty object
 	};

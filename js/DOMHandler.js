@@ -32,8 +32,8 @@ var initializeDOM = (function(){
 		outputArea.innerHTML = ""; //wipe out the HTML in the output div
 		disableClear(); //call helper function
 
-		for (let i = 0; i < messagesLength; i++){
-			Chatty.deleteFromMessageArray(i);
+		for (let i = messagesLength; i > 0; i--){
+			Chatty.deleteFromMessageArray(0);
 		}
 
 	});
