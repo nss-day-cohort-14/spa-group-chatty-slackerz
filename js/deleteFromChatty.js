@@ -14,9 +14,11 @@ var Chatty = (function(chatty){
 		var targetMessageID = targetMessage.id; //get the above message's id
 		var idNum = targetMessageID.split("--")[1]; //get the index of the id only
 		var messageToDelete = document.getElementById(targetMessageID); //get the DOm element to delete
+		//var timeStampToDelete = document.getElementById(`messageTimestamp--${idNum}`); //get the DOm element to delete
 
 		if (event.target.id === `messageButton--${idNum}`){ //if the target id === the button id pressed then remove the message
 			document.getElementById("output").removeChild(messageToDelete);
+			//document.getElementById("output").removeChild(timeStampToDelete);
 			Chatty.deleteFromMessageArray(idNum); //call the f(x) to remove from the array
 		}
 		if (Chatty.getMessageArray().length === 0){
