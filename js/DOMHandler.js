@@ -5,10 +5,19 @@ var initializeDOM = (function(){
 	var outputArea = document.getElementById("output"); //get element to print data into
 	var textInputBox = document.getElementById("messageTextInput");
 //this listener listens for the enter key press
+	function disableClear(){
+		if (outputArea.innerHTML === "") {
+			clearMessageButton.disabled = true;
+		} else {
+			clearMessageButton.disabled = false;
+		}
+	}
+
 	window.addEventListener("keyup", function(event){
 		if (event.keyCode === 13){
 			Chatty.addMessageToDOM(Chatty.readInput(document.getElementById("messageTextInput").value));
 		}
+		disableClear();
 	});
 //this listener listens for the large text for the body of the message.
 	largeTextCheckBox.addEventListener("change", function(event){
@@ -20,5 +29,6 @@ var initializeDOM = (function(){
 	clearMessageButton.addEventListener("click", function(event){
 		//remove content from the content div in the html
 		outputArea.innerHTML = "";
+		disableClear();
 	});
 })();
