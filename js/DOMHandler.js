@@ -4,20 +4,20 @@ var initializeDOM = (function(){
 	var clearMessageButton = document.getElementById("clearMessages"); //get element of the clear message button
 	var outputArea = document.getElementById("output"); //get element to print data into
 	var textInputBox = document.getElementById("messageTextInput");
-//this listener listens for the enter key press
-	function disableClear(){
+
+	function disableClear(){ //helper function to disable the clear key when id=output is empty
 		if (outputArea.innerHTML === "") {
 			clearMessageButton.disabled = true;
 		} else {
 			clearMessageButton.disabled = false;
 		}
 	}
-
+//listens for the enter key to be pressed
 	window.addEventListener("keyup", function(event){
 		if (event.keyCode === 13){
 			Chatty.addMessageToDOM(Chatty.readInput(document.getElementById("messageTextInput").value));
 		}
-		disableClear();
+		disableClear(); //call helper function
 	});
 //this listener listens for the large text for the body of the message.
 	largeTextCheckBox.addEventListener("change", function(event){
@@ -27,8 +27,8 @@ var initializeDOM = (function(){
 		document.body.classList.toggle("dark"); //if one is on to start  with only one will ever be on at a a time
 	});
 	clearMessageButton.addEventListener("click", function(event){
-		//remove content from the content div in the html
-		outputArea.innerHTML = "";
-		disableClear();
+		//remove content from the content div in the HTML
+		outputArea.innerHTML = ""; //wipe out the HTML in the output div
+		disableClear(); //call helper function
 	});
 })();

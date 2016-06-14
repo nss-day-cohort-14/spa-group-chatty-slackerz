@@ -8,8 +8,8 @@ var Chatty = (function (chatty) {
 	function parseJSON (event){
 		var initialMessages = JSON.parse(event.target.responseText);
 		messages = initialMessages.firstMessages;	//gets first 5 messages
-		for (i = 0; i < messages.length; i++) {		//loop thru array to add each message
-			Chatty.addMessageToDOM(i);
+		for (i = 0; i < messages.length; i++) {		//loop through array to add each message
+			Chatty.addMessageToDOM(i); //call the add messages function 5 times 
 		}
 
 	};
