@@ -37,16 +37,20 @@ var Chatty = (function(chatty){
 
 			var newMessageDelButton = document.createElement("button"); //add a new button element
 			newMessageDelButton.innerHTML = "Delete"; //call it delete
-
+			var editCurrentMessageButton = document.createElement("button");
+			editCurrentMessageButton.innerHTML = "Edit";
 			var outputArea = document.getElementById("output"); //identify the output area
 
 
 			var newMessageID = document.createAttribute("id"); //add an ID
-			var newDelButtonID = document.createAttribute("id")
+			var newDelButtonID = document.createAttribute("id");
+			var editMessageID = document.createAttribute("id");
 			newMessageID.value = `messageBlock--${idNum}`; //set the IDs
 			newDelButtonID.value = `messageButton--${idNum}`;
+			editMessageID.value = `editMessage--${idNum}`
 			newMessageDiv.setAttributeNode(newMessageID); //add the IDs to the message and button
 			newMessageDelButton.setAttributeNode(newDelButtonID);
+			editCurrentMessageButton.setAttributeNode(editMessageID);
 
 
 			outputArea.appendChild(newMessageDiv); //add the new message
@@ -54,9 +58,11 @@ var Chatty = (function(chatty){
 			newMessageDiv.appendChild(newMessageUser);
 			newMessageDiv.appendChild(newMessageText);
 			newMessageDiv.appendChild(newMessageDelButton); //add button to the message
+			newMessageDiv.appendChild(editCurrentMessageButton); //add button to the message
 
 			document.getElementById("messageTextInput").value = ""; //reset the input field
 			document.getElementById(`messageBlock--${idNum}`).addEventListener("click", Chatty.deleteMessage);
+			document.getElementById(`messageBlock--${idNum}`).addEventListener("click", Chatty.editSelectedMessage);
 		}	else {
 			alert("Write something in the box, please!");
 		}
