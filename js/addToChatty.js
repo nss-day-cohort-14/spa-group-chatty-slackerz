@@ -16,6 +16,7 @@ var Chatty = (function(chatty){
 
 			if (idNum > 4) {  //adding timestamp to array for new messages after the first 5
 				arrayObject.timestamp = Chatty.timeStamp();
+				arrayObject.user = "You";
 			};
 
 			var newMessageDiv = document.createElement("div"); //create the div
@@ -24,7 +25,10 @@ var Chatty = (function(chatty){
 			var newMessageTimestamp = document.createElement("span");  //create a span for timestamp 
 			newMessageTimestamp.innerHTML = messages[idNum].timestamp;  //put the timestamp in the span
 			newMessageTimestamp.classList.add("timestamp"); //add class for styling
-			console.log("timestamp", newMessageTimestamp);
+
+			var newMessageUser = document.createElement("span");
+			newMessageUser.innerHTML = messages[idNum].user + ": ";
+			newMessageUser.classList.add("userName");
 
 			var newMessageText = document.createElement("span");  //create a span for message
 			newMessageText.innerHTML = messages[idNum].message; //put the message in the span
@@ -46,6 +50,7 @@ var Chatty = (function(chatty){
 
 			outputArea.appendChild(newMessageDiv); //add the new message
 			newMessageDiv.appendChild(newMessageTimestamp);
+			newMessageDiv.appendChild(newMessageUser);
 			newMessageDiv.appendChild(newMessageText);
 			newMessageDiv.appendChild(newMessageDelButton); //add button to the message
 
