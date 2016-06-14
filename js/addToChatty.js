@@ -11,7 +11,8 @@ var Chatty = (function(chatty){
 
 	chatty.addMessageToDOM = function(idNum) {//this function adds a message to the DOM
 		var messages = Chatty.getMessageArray();
-
+		//if there is text in the input OR the initial messages are not done loading, then input to the DOM
+		//this stops random delete buttons from being created when enter is pressed
 		if(document.getElementById("messageTextInput").value !== "" || 5 > idNum ){
 			var newMessageDiv = document.createElement("div"); //create the div
 			var messages = Chatty.getMessageArray(); //get the messages
@@ -26,7 +27,7 @@ var Chatty = (function(chatty){
 			var newDelButtonID = document.createAttribute("id")
 			newMessageID.value = `messageBlock--${idNum}`; //set the IDs
 			newDelButtonID.value = `messageButton--${idNum}`;
-			newMessageDiv.setAttributeNode(newMessageID); //add the ID
+			newMessageDiv.setAttributeNode(newMessageID); //add the IDs to the message and button
 			newMessageDelButton.setAttributeNode(newDelButtonID);
 
 			outputArea.appendChild(newMessageDiv); //add the new message

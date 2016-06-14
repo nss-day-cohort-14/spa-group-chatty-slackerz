@@ -1,12 +1,13 @@
 .dark {
-	background-color: darkgrey;
+	background-color: rgba(7, 7, 7, 0.7);
 	color: white;
-}
-
-nav > input {
-	color: black;
 }
 
 .dark button {
 	background-color: black;
+}
+
+/*this insures that the input text stays black when the dark theme is applied*/
+nav > input {
+	color: black;
 }
