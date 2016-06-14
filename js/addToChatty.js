@@ -26,7 +26,10 @@ var Chatty = (function(chatty){
 			newMessageTimestamp.classList.add("timestamp"); //add class for styling
 			console.log("timestamp", newMessageTimestamp);
 
-			newMessageDiv.innerHTML = messages[idNum].message; //put the message in the div
+			var newMessageText = document.createElement("span");  //create a span for message
+			newMessageText.innerHTML = messages[idNum].message; //put the message in the span
+			newMessageText.classList.add("messageText"); //add class for styling
+
 			var newMessageDelButton = document.createElement("button"); //add a new button element
 			newMessageDelButton.innerHTML = "Delete"; //call it delete
 
@@ -34,18 +37,16 @@ var Chatty = (function(chatty){
 
 
 			var newMessageID = document.createAttribute("id"); //add an ID
-			var newMessageTimestampID = document.createAttribute("id"); //add an ID
 			var newDelButtonID = document.createAttribute("id")
 			newMessageID.value = `messageBlock--${idNum}`; //set the IDs
-			newMessageTimestampID.value = `messageTimestamp--${idNum}`; //set the IDs
 			newDelButtonID.value = `messageButton--${idNum}`;
 			newMessageDiv.setAttributeNode(newMessageID); //add the ID
-			newMessageTimestamp.setAttributeNode(newMessageTimestampID); //add the ID
 			newMessageDelButton.setAttributeNode(newDelButtonID);
 
 
-			outputArea.appendChild(newMessageTimestamp);
 			outputArea.appendChild(newMessageDiv); //add the new message
+			newMessageDiv.appendChild(newMessageTimestamp);
+			newMessageDiv.appendChild(newMessageText);
 			newMessageDiv.appendChild(newMessageDelButton); //add button to the message
 
 			document.getElementById("messageTextInput").value = ""; //reset the input field

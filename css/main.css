@@ -76,4 +76,9 @@
 .timestamp {
 	color: red;
 	font-style: italic;
+	padding-right: 5px;
+}
+
+.newMessageText {
+	font-family: Arial, sans-serif;
 }
