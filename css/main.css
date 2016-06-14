@@ -74,4 +74,12 @@
 	font-weight: bold;
 }
 
+#users {
+	border: none;
+}
+
+.userLabel {
+	padding: 0 10px 0 2px;
+}
+
 

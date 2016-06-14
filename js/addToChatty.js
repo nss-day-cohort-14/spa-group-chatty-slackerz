@@ -13,11 +13,14 @@ var Chatty = (function(chatty){
 		var messages = Chatty.getMessageArray();
 		//if there is text in the input OR the initial messages are not done loading, then input to the DOM
 		//this stops random delete buttons from being created when enter is pressed
+		var userSelection = document.getElementById("users"); //targets div with all radio buttons for user names
+
 		if(document.getElementById("messageTextInput").value !== "" || 5 > idNum ){
 
-			if (idNum > 4) {  //adding timestamp to array for new messages after the first 5
-				arrayObject.timestamp = Chatty.timeStamp();
-				arrayObject.user = "You";
+			if (idNum > 4) {  
+				arrayObject.timestamp = Chatty.timeStamp(); //adding timestamp to array for new messages after the first 5
+				arrayObject.user = userSelection.elements["userRadioBtn"].value; //gets value of user radio buttons
+
 			};
 
 			var newMessageDiv = document.createElement("div"); //create the div
