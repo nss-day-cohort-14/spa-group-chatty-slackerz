@@ -25,6 +25,7 @@ var initializeDOM = (function(){
 	});
 	darkThemeCheckBox.addEventListener("change", function(event){	
 		document.body.classList.toggle("dark"); //if one is on to start  with only one will ever be on at a a time
+		document.getElementById("messageTextInput").classList.toggle("dark");
 	});
 	clearMessageButton.addEventListener("click", function(event){
 		var messagesLength = Chatty.getMessageArray().length;
@@ -32,8 +33,8 @@ var initializeDOM = (function(){
 		outputArea.innerHTML = ""; //wipe out the HTML in the output div
 		disableClear(); //call helper function
 
-		for (let i = 0; i < messagesLength; i++){
-			Chatty.deleteFromMessageArray(i);
+		for (let i = messagesLength; i > 0; i--){
+			Chatty.deleteFromMessageArray(0);
 		}
 
 	});
