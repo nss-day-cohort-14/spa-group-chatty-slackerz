@@ -51,6 +51,11 @@ var Chatty = (function(chatty){
 				arrayObject.timestamp = Chatty.timeStamp(); //adding timestamp to array for new messages after the first 5
 				arrayObject.user = userSelection.elements["userRadioBtn"].value; //gets value of user radio buttons
 
+				if (arrayObject.user === "") {
+					alert("Please select a user!");
+					return;
+				};
+
 			};
 
 			var newMessageDiv = document.createElement("div"); //create the div
