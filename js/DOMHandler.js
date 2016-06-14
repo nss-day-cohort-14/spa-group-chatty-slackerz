@@ -29,13 +29,14 @@ var initializeDOM = (function(){
 	});
 	clearMessageButton.addEventListener("click", function(event){
 		var messagesLength = Chatty.getMessageArray().length;
+		var messages = Chatty.getMessageArray();
 		//remove content from the content div in the HTML
 		outputArea.innerHTML = ""; //wipe out the HTML in the output div
 		disableClear(); //call helper function
-
-		for (let i = messagesLength; i > 0; i--){
-			Chatty.deleteFromMessageArray(0);
+		
+		for(let i = 0; i < messagesLength; i++){
+			messages.splice(0, 1);
 		}
-
+		return Chatty.messages;
 	});
 })();
