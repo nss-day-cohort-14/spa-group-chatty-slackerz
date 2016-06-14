@@ -6,3 +6,7 @@
 form > input {
 	color: black;
 }
+
+.dark button {
+	background-color: black;
+}
