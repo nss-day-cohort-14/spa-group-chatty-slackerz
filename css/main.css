@@ -39,8 +39,12 @@
 #output {
 	border: 1px solid black;
 	width: 400px;
-	height: 400px;
+	height: 22em;
 	margin: 0 auto;
+  /*the following 3 lines make a scroll bar*/
+  overflow:scroll;
+  overflow-x:hidden;
+  
 }
 #outputContainer {
 	margin: 0 auto;
