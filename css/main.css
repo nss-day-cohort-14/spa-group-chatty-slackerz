@@ -50,19 +50,6 @@
 	margin: 0 auto;
 	text-align: center;
 }
-
-/*Dark theme*/
-
-
-.container.darkTheme {
-	border-color: white;
-}
-
-.darkTheme {
-	background-color: #a9a9a9;
-	color: white;
-	border-color: white;
-}
 /*enlarge text*/
 .enlargeText {
 	font-size: 1.5em;
