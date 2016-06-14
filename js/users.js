@@ -5,7 +5,8 @@ var Chatty = (function (chatty) {
 
 	var userNamesDiv = document.getElementById("users"); //element to add user radio buttons to
 	
-	for (i =0; i < users.names.length; i++){
+	//create inputs for each name in users array with attributes of radio type, names and values
+	for (i =0; i < users.names.length; i++){  
 		var newUserRadioBtn = document.createElement("input");
 		var newUserRadioBtnType = document.createAttribute("type");
 		newUserRadioBtnType.value = "radio";
@@ -19,7 +20,7 @@ var Chatty = (function (chatty) {
 		newUserRadioBtnValue.value = userName;
 		newUserRadioBtn.setAttributeNode(newUserRadioBtnValue);
 
-		var userLabel = document.createElement("span");
+		var userLabel = document.createElement("span"); //adds name labels to radio buttons
 		userLabel.innerHTML = userName;
 		userLabel.classList.add("userLabel");
 

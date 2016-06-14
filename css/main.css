@@ -50,24 +50,16 @@
 	margin: 0 auto;
 	text-align: center;
 }
-/*enlarge text*/
-.enlargeText {
-	font-size: 1.5em;
-}
-
-.staysBlack, #userInput, .deleteButton {
-    color: black;
-}
-
 
 .timestamp {
 	color: red;
 	font-style: italic;
 	padding-right: 5px;
+
 }
 
-.newMessageText {
-	font-family: Arial, sans-serif;
+.messageText {
+
 }
 
 .userName {
@@ -81,5 +73,17 @@
 .userLabel {
 	padding: 0 10px 0 2px;
 }
+
+
+/*enlarge text*/
+.enlargeText {
+	font-size: 1.5em;
+}
+
+.staysBlack, #userInput, .deleteButton {
+    color: black;
+}
+
+
 
 
