@@ -2,7 +2,7 @@ var Chatty = (function(chatty){
 
 	chatty.deleteFromMessageArray = function (index) { //this helper function deletes from the array any message removed from DOM
 		messages = chatty.getMessageArray(); //get the array
-		
+
 			messages = messages.splice(index, 1); //splice out the index that need to be removed
 		
 		
@@ -19,6 +19,10 @@ var Chatty = (function(chatty){
 			document.getElementById("output").removeChild(messageToDelete);
 			Chatty.deleteFromMessageArray(idNum); //call the f(x) to remove from the array
 		}
+		if (Chatty.getMessageArray().length === 0){
+				document.getElementById("clearMessages").disabled = true;
+		}
 	}
+
 	return chatty;
 })(Chatty || {}); 

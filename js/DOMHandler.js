@@ -25,6 +25,7 @@ var initializeDOM = (function(){
 	});
 	darkThemeCheckBox.addEventListener("change", function(event){	
 		document.body.classList.toggle("dark"); //if one is on to start  with only one will ever be on at a a time
+		document.getElementById("messageTextInput").classList.toggle("dark");
 	});
 	clearMessageButton.addEventListener("click", function(event){
 		var messagesLength = Chatty.getMessageArray().length;
