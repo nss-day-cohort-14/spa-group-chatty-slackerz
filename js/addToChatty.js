@@ -10,7 +10,9 @@ var Chatty = (function(chatty){
 	};
 
 	chatty.addMessageToDOM = function(idNum) {//this function adds a message to the DOM
-		
+		var messages = Chatty.getMessageArray();
+
+		if(document.getElementById("messageTextInput").value !== "" || 5 > idNum ){
 			var newMessageDiv = document.createElement("div"); //create the div
 			var messages = Chatty.getMessageArray(); //get the messages
 
@@ -32,7 +34,10 @@ var Chatty = (function(chatty){
 
 			document.getElementById("messageTextInput").value = ""; //reset the input field
 			document.getElementById(`messageBlock--${idNum}`).addEventListener("click", Chatty.deleteMessage);
-		};
+		}	else {
+			alert("Write something in the box, please!");
+		}
+	};
 
 	return chatty;
 })(Chatty || {});
