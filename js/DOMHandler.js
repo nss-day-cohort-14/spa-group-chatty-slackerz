@@ -27,8 +27,14 @@ var initializeDOM = (function(){
 		document.body.classList.toggle("dark"); //if one is on to start  with only one will ever be on at a a time
 	});
 	clearMessageButton.addEventListener("click", function(event){
+		var messagesLength = Chatty.getMessageArray().length;
 		//remove content from the content div in the HTML
 		outputArea.innerHTML = ""; //wipe out the HTML in the output div
 		disableClear(); //call helper function
+
+		for (let i = 0; i < messagesLength; i++){
+			Chatty.deleteFromMessageArray(i);
+		}
+
 	});
 })();
