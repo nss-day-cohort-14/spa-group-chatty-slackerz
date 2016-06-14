@@ -3,6 +3,7 @@ var initializeDOM = (function(){
 	var darkThemeCheckBox = document.getElementById("darkTheme"); //get element of the dark theme toggle checkbox
 	var clearMessageButton = document.getElementById("clearMessages"); //get element of the clear message button
 	var outputArea = document.getElementById("output"); //get element to print data into
+	var textInputBox = document.getElementById("messageTextInput");
 //this listener listens for the enter key press
 	window.addEventListener("keyup", function(event){
 		if (event.keyCode === 13){
