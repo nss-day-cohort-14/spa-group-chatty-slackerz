@@ -1,6 +1,6 @@
 var Chatty = (function (chatty) {
   
-  function timeStamp() {
+  chatty.timeStamp = function() {
     // Create a date object with the current time
       var now = new Date();
     // Create an array with the current month, day and time

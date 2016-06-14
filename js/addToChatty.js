@@ -13,8 +13,18 @@ var Chatty = (function(chatty){
 		var messages = Chatty.getMessageArray();
 
 		if(document.getElementById("messageTextInput").value !== "" || 5 > idNum ){
+
+			if (idNum > 4) {  //adding timestamp to array for new messages after the first 5
+				arrayObject.timestamp = Chatty.timeStamp();
+			};
+
 			var newMessageDiv = document.createElement("div"); //create the div
 			var messages = Chatty.getMessageArray(); //get the messages
+
+			var newMessageTimestamp = document.createElement("span");  //create a span for timestamp 
+			newMessageTimestamp.innerHTML = messages[idNum].timestamp;  //put the timestamp in the span
+			newMessageTimestamp.classList.add("timestamp"); //add class for styling
+			console.log("timestamp", newMessageTimestamp);
 
 			newMessageDiv.innerHTML = messages[idNum].message; //put the message in the div
 			var newMessageDelButton = document.createElement("button"); //add a new button element
@@ -22,13 +32,19 @@ var Chatty = (function(chatty){
 
 			var outputArea = document.getElementById("output"); //identify the output area
 
+
 			var newMessageID = document.createAttribute("id"); //add an ID
+			var newMessageTimestampID = document.createAttribute("id"); //add an ID
 			var newDelButtonID = document.createAttribute("id")
 			newMessageID.value = `messageBlock--${idNum}`; //set the IDs
+			newMessageTimestampID.value = `messageTimestamp--${idNum}`; //set the IDs
 			newDelButtonID.value = `messageButton--${idNum}`;
 			newMessageDiv.setAttributeNode(newMessageID); //add the ID
+			newMessageTimestamp.setAttributeNode(newMessageTimestampID); //add the ID
 			newMessageDelButton.setAttributeNode(newDelButtonID);
 
+
+			outputArea.appendChild(newMessageTimestamp);
 			outputArea.appendChild(newMessageDiv); //add the new message
 			newMessageDiv.appendChild(newMessageDelButton); //add button to the message
 

@@ -71,3 +71,9 @@
 .staysBlack, #userInput, .deleteButton {
     color: black;
 }
+
+
+.timestamp {
+	color: red;
+	font-style: italic;
+}
