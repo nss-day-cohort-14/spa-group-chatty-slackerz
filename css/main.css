@@ -29,6 +29,7 @@
 #clearMessages {
 	height: 25px;
 	border-radius: 5px;
+	margin-bottom: 10px;
 }
 
 .checkbox {
@@ -38,7 +39,7 @@
 
 #output {
 	border: 1px solid black;
-	width: 400px;
+	width: 70%;
 	height: 22em;
 	margin: 0 auto;
   /*the following 3 lines make a scroll bar*/
@@ -48,18 +49,30 @@
 }
 #outputContainer {
 	margin: 0 auto;
-	text-align: center;
+/*	text-align: center;*/
+}
+
+#messagesTitle {
+		border: 1px solid black;
+		width: 70%;
+		margin: 10px auto 0 auto;
+		font-size: 1.2em;
+		font-family: Geneva, sans-serif;
+		text-align: center;
+		background: gold;
+		color: #444;
+		font-weight: bold;
 }
 
 .timestamp {
 	color: red;
 	font-style: italic;
-	padding-right: 5px;
-
+	padding: 0 5px;
+	font-size: .8em;
 }
 
 .messageText {
-
+	padding-right: 20px;
 }
 
 .userName {
@@ -78,6 +91,10 @@
 /*enlarge text*/
 .enlargeText {
 	font-size: 1.5em;
+}
+
+.enlargeText .timestamp {
+	font-size: 1.1rem;
 }
 
 .staysBlack, #userInput, .deleteButton {
