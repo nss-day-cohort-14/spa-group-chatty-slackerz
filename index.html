@@ -14,7 +14,7 @@
 <body class="light">
 <nav class="nav">
   	<input id="messageTextInput" type="text" name="message" placeholder="Enter Message" class="inputBox">
-	<img src="images/AOLsymbol.jpg" alt="aolLogo" id="img">
+	<img src="images/AOLsymbol.png" alt="aolLogo" id="img">
   	<span id="nametag">Chatty!</span>
   	<fieldset id="users"></fieldset>
   	<button id="clearMessages">Clear Message Board</button><br>
@@ -25,8 +25,9 @@
 	  	<label><input type="checkbox" name="check" id="largeText">Large Text</label>
 		</div>
 </nav>
-	<div id="outputContainer"> Messages:
-	<div id="output"></div>
+	<div id="outputContainer">
+		<div id="messagesTitle">MESSAGES</div>
+		<div id="output"></div>
 	</div>
 
 	<script src="js/loadInitialChatty.js"></script>
